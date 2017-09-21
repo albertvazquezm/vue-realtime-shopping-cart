@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Zapatillas con luz",
+      "price": 23
+    },
+    {
+      "name": "Camiseta azul",
+      "price": 10
+    },
+    {
+      "name": "Cinturón cuero",
+      "price": 44
+    }
+  ]
+}

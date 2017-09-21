@@ -1,0 +1,5 @@
+1 - Install nodejs & vue-cli
+2 - Generate app using webpack-simple
+3 - Explain generated assets and mini intro at how vue loader and webpack works
+4 - Create ProductGridSmart and ShoppingCartSmart and place them into App.vue
+5 - Initialize the store with state, mutation and an action. Then see how we can see the tree on vue dev tools
