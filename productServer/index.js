@@ -1,10 +1,21 @@
 'use strict';
 
 const Hapi = require('hapi');
-const productsList = require('products.json');
+const productsList = require('./products.json');
 
 const server = new Hapi.Server();
-server.connection({ port: 3000, host: 'localhost' });
+server.connection({ port: 3000, host: 'localhost', routes: {cors: true} });
+
+const io = require('socket.io')(server.listener);
+
+io.on('connection', function (socket) {
+    setInterval(() => {
+        const productListLength = productsList.products.length;
+        const randIndx = Math.floor(Math.random() * productListLength);
+        const randPrice = Math.floor(Math.random() * 200) + 100;
+        socket.emit('price', {productId: productsList.products[randIndx].id, price: randPrice})
+    }, 600);
+});
 
 server.route({
   method: 'GET',
@@ -15,7 +26,6 @@ server.route({
 });
 
 server.start((err) => {
-
     if (err) {
         throw err;
     }

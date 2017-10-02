@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <product-grid-smart></product-grid-smart>
+    <div class="container">
+      <product-grid-smart></product-grid-smart>
+    </div>
     <shopping-cart-smart></shopping-cart-smart>
   </div>
 </template>
@@ -14,6 +16,10 @@ export default {
   components: {
     ProductGridSmart,
     ShoppingCartSmart
+  },
+  created() {
+    this.$store.dispatch('fetchProducts');
+    this.$store.dispatch('startListeningForPrices');
   }
 }
 </script>

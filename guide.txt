@@ -3,3 +3,7 @@
 3 - Explain generated assets and mini intro at how vue loader and webpack works
 4 - Create ProductGridSmart and ShoppingCartSmart and place them into App.vue
 5 - Initialize the store with state, mutation and an action. Then see how we can see the tree on vue dev tools
+6 - Create a fetch action that gets products and sets the state
+7 - Ensure we show products and add a "addToCart" button which is going to mutate "isInCart" prop.
+8 - Add remove from cart option
+9 - Connect to socketio to get new price info
