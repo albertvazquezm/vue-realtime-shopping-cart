@@ -4,7 +4,7 @@ const Hapi = require('hapi');
 const productsList = require('./products.json');
 
 const server = new Hapi.Server();
-server.connection({ port: 8080, routes: {cors: true}});
+server.connection({ port: process.env.PORT || 8080, routes: {cors: true}});
 
 const io = require('socket.io')(server.listener);
 
