@@ -37,7 +37,7 @@ export const storeFactory = () => new Vuex.Store({
     removeProductFromCart({commit}, productId) {
       commit('removeProductFromCart', productId);
     },
-    updateProductPrice({commit}, productId) {
+    startListeningForPrices({commit}, productId) {
       socket.on('price', ({productId, price}) => {
         commit('updateProductPrice', {productId, price});
       });

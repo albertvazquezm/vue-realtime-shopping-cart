@@ -1,7 +1,7 @@
 <template>
   <div class="shoppingcart">
     <div class="container">
-      <h2>Shopping cart ({{products.length}})</h2>
+      <h2>Shopping cart ({{totalProductsPrice}}&euro;)</h2>
       <product-grid-wrapper-dumb>
         <li v-for="product in products" :key="product.name">
           <product-dumb 
@@ -22,6 +22,9 @@ export default {
   computed: {
     products() {
       return this.$store.state.products.filter(p => p.isInCart);
+    },
+    totalProductsPrice() {
+      return this.products.map(p => p.price).reduce((acc, val) => acc + val, 0);
     }
   },
   methods: {
@@ -41,7 +44,7 @@ export default {
     position: fixed;
     padding: 10px 0;
     bottom: 0;
-    background: #ED1C40;
+    background: #FFC800;
     left: 0;
     right: 0;
   }
