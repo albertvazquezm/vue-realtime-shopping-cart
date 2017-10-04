@@ -4,7 +4,7 @@ const Hapi = require('hapi');
 const productsList = require('./products.json');
 
 const server = new Hapi.Server();
-server.connection({ port: 8080, routes: {cors: true}, uri: 'https://simple-shopping-api.herokuapp.com:8080'});
+server.connection({ port: 8080, routes: {cors: true}, host: 'simple-shopping-api.herokuapp.com'});
 
 const io = require('socket.io')(server.listener);
 
