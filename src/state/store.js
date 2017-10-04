@@ -2,8 +2,9 @@ import Vuex from 'vuex';
 import * as axios from 'axios';
 import {Product} from '../entities/Product';
 import * as socketFactory from 'socket.io-client';
+import config from '../config';
 
-const socket = socketFactory('http://localhost:3000');
+const socket = socketFactory(config.apiUrl);
 
 export const storeFactory = () => new Vuex.Store({
   state: {
@@ -28,7 +29,7 @@ export const storeFactory = () => new Vuex.Store({
   },
   actions: {
     fetchProducts({commit}) {
-      axios.get('http://localhost:3000/products').then(response => commit('setProducts', response.data.products.map(p => new Product(p))));
+      axios.get(`${config.apiUrl}/products`).then(response => commit('setProducts', response.data.products.map(p => new Product(p))));
     },
     addProductToCart({commit}, productId) {
       commit('addProductToCart', productId);
