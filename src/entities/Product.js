@@ -7,7 +7,7 @@ export class Product {
   }) {
     this.id = id;
     this.name = name;
-    this.price = price;
-    this.isInCart = isInCart;
+    this.price = price || 0;
+    this.isInCart = isInCart || false;
   }
 }
