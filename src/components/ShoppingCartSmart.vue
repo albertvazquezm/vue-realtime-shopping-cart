@@ -24,7 +24,7 @@ export default {
       return this.$store.state.products.filter(p => p.isInCart);
     },
     totalProductsPrice() {
-      return this.products.map(p => p.price).reduce((acc, val) => acc + val, 0);
+      return this.products.map(p => p.price).reduce((acc, val) => acc + (!isNaN(val) ? val : 0), 0);
     }
   },
   methods: {
